@@ -11,8 +11,8 @@ import torch
 from harness import data as D
 from harness.backbones import AlexNetCIFAR, build_backbone
 from harness.features import cached_features, extract, extract_all
-from harness.heads import Classifier, build_head
-from harness.runlog import ExpDir, mean_se
+from harness.heads import Classifier, build_head, cost
+from harness.runlog import ExpDir, load_predictions, mcnemar, mean_se
 from harness.train import OptimConfig, cast_prepare, evaluate, fit, seed_everything
 
 CPU = torch.device("cpu")
@@ -242,7 +242,69 @@ def test_head_learns_separable_features():
     assert evaluate(head, feats, y, cast_prepare(CPU))["acc"] > 0.95
 
 
+# ---- LUT trunk ----
+
+LUT_SMALL = dict(cartridge="ConfidenceLUT", read_top_n=2, h=2, tph=4, nap=3, d=8)
+
+
+def test_lut_head_shapes_and_zero_start():
+    pytest.importorskip("spiky.lutorch_ex")
+    head = build_head("lut", 48, 32, 10, seed=0, **LUT_SMALL)
+    x = torch.randn(5, 48)
+    assert head.trunk(x).shape == (5, 32) and head(x).shape == (5, 10)
+    assert head.trunk(x).eq(0).all()  # decompress starts at zero (library default)
+    assert torch.allclose(head(x), head.readout.bias.expand(5, 10))
+
+
+def _train_lut(seed, cart_seed, feats, y):
+    seed_everything(seed)
+    head = build_head("lut", feats.shape[1], 32, 10, seed=cart_seed, **LUT_SMALL)
+    fit(head, (feats, y), cast_prepare(CPU), OptimConfig(epochs=3, lr=3e-3, batch_size=16), seed)
+    return head.state_dict()
+
+
+def test_lut_head_training_is_deterministic_under_fixed_seed():
+    pytest.importorskip("spiky.lutorch_ex")
+    feats = torch.randn(64, 48, generator=torch.Generator().manual_seed(0))
+    y = torch.arange(64) % 10
+    sd1, sd2 = _train_lut(0, 0, feats, y), _train_lut(0, 0, feats, y)
+    _assert_same(sd1, sd2)
+    sd3 = _train_lut(0, 1, feats, y)  # same global seed, different cartridge seed: different anchors
+    assert any(not torch.equal(sd1[k], sd3[k]) for k in sd1)
+
+
+def test_lut_head_learns_separable_features():
+    pytest.importorskip("spiky.lutorch_ex")
+    g = torch.Generator().manual_seed(0)
+    y = torch.arange(200) % 10
+    feats = torch.nn.functional.one_hot(y, 10).float() * 3 + 0.3 * torch.randn(200, 10, generator=g)
+    seed_everything(0)
+    head = build_head("lut", 10, 32, 10, seed=0, **LUT_SMALL)
+    fit(head, (feats, y), cast_prepare(CPU), OptimConfig(epochs=20, lr=3e-3, batch_size=32), 0)
+    assert evaluate(head, feats, y, cast_prepare(CPU))["acc"] > 0.9
+
+
+def test_head_cost():
+    assert cost(build_head("mlp", 1536, 1024, 10)) == {"linear_macs": 1536 * 1024 + 1024 * 1024 + 1024 * 10,
+                                                        "lut_row_reads": 0}
+    pytest.importorskip("spiky.lutorch_ex")
+    c = cost(build_head("lut", 48, 32, 10, seed=0, **LUT_SMALL))
+    assert c == {"linear_macs": 48 * 16 + 16 * 32 + 32 * 10, "lut_row_reads": 2 * 4 * 2}
+
+
 # ---- bookkeeping ----
+
+def test_predictions_roundtrip_and_mcnemar(tmp_path):
+    exp = ExpDir(tmp_path / "exp", {"a": 1})
+    exp.save_predictions("_labels__x", torch.tensor([0, 1, 2, 3]))
+    exp.save_predictions("r1", torch.tensor([0, 1, 9, 9]))
+    exp.save_predictions("r1", torch.tensor([0, 1, 2, 9]))  # a rerun: the later line wins
+    preds = load_predictions(tmp_path / "exp")
+    assert preds["r1"] == [0, 1, 2, 9] and ExpDir(tmp_path / "exp", {"a": 1}).predicted == {"_labels__x", "r1"}
+    assert mcnemar([0, 1, 2, 9], [0, 9, 9, 9], [0, 1, 2, 3])[:2] == (2, 0)
+    assert mcnemar([0, 1], [0, 1], [0, 1]) == (0, 0, 1.0)
+    b, c, p = mcnemar([1] * 60 + [0] * 40, [0] * 60 + [1] * 40, [1] * 100)  # 60 vs 40 discordant
+    assert (b, c) == (60, 40) and p == pytest.approx(0.0574, abs=1e-3)
 
 def test_expdir_resume_and_mean_se(tmp_path):
     exp = ExpDir(tmp_path / "exp", {"a": 1})

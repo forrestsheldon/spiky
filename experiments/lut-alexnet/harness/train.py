@@ -61,6 +61,14 @@ def evaluate(model, x, y, prepare, batch_size=1000):
     return {"loss": loss / len(x), "acc": correct / len(x)}
 
 
+@torch.no_grad()
+def predict(model, x, prepare, batch_size=1000):
+    """Predicted class per input (int64, on the CPU), eval mode."""
+    model.eval()
+    return torch.cat([model(prepare(x[i:i + batch_size], None, False)).argmax(1).cpu()
+                      for i in range(0, len(x), batch_size)])
+
+
 def fit(model, train, prepare, cfg: OptimConfig, seed, val=None, log=None):
     """Trains ``model`` in place on ``train = (x, y)``; evaluates on ``val`` after every epoch.
 

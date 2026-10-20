@@ -1,9 +1,9 @@
 # lut-alexnet: bootstrap harness
 
-**Data → dense backbone → cached features → dense (later LUT) head**, with seeds and a noise floor.
-Design agreed 2026-10-20 (deepspike `projects/alexnet.md`). Backbones and head trunks are pluggable;
-AlexNet is the first backbone and the plain MLP the first trunk. The LUT trunk (`ProjectionMHL`) lands
-2026-10-21 in the slot described in `harness/heads.py`.
+**Data → dense backbone → cached features → dense or LUT head**, with seeds and a noise floor.
+Design agreed 2026-10-20 (deepspike `projects/alexnet.md`). Backbones and head trunks are pluggable:
+AlexNet is the first backbone; the trunks are the plain MLP (`"mlp"`) and a lutorch_ex `ProjectionMHL`
+(`"lut"`).
 
 ## Layout
 
@@ -11,14 +11,14 @@ AlexNet is the first backbone and the plain MLP the first trunk. The LUT trunk (
 |---|---|
 | `harness/data.py` | MNIST / Fashion-MNIST (zero-padded 28→32, 1 ch) / CIFAR-10 as uint8 tensors; fixed 5k val split; on-device crop+flip (F-MNIST, CIFAR-10 only) |
 | `harness/backbones.py` | `AlexNetCIFAR` (3×3 convs 64/192/384/256/256, pools after conv1/2/5 → 4096-d; `batchnorm` flag; taps conv3/conv4 avg-pooled to 2×2) and the `BACKBONES` registry |
-| `harness/heads.py` | `Head` = pluggable trunk (`"mlp"`: Linear–ReLU–Dropout ×2, width W) + linear readout; `TRUNKS` registry |
+| `harness/heads.py` | `Head` = pluggable trunk (`"mlp"`: Linear–ReLU–Dropout ×2, width W; `"lut"`: `ProjectionMHL` in → W around a lutorch_ex cartridge) + linear readout; `TRUNKS` registry; `cost()` per-input arithmetic |
 | `harness/train.py` | the one training loop (AdamW + one-cycle, seeded shuffles and augmentation) |
 | `harness/features.py` | feature extraction + on-disk cache validated by metadata (checkpoint sha1, taps, split) |
-| `harness/runlog.py` | experiment folders: `config.json`, append-only `metrics.csv`, resumable `summary.json`; mean ± SE |
+| `harness/runlog.py` | experiment folders: `config.json`, append-only `metrics.csv`, resumable `summary.json`, `predictions.jsonl` (test predictions per run); mean ± SE; McNemar |
 | `run_backbones.py` | stage 1: train a backbone per dataset end to end (dense W=4096 head), cache its taps |
 | `run_heads.py` | stage 2: head-only sweeps on cached features; input `pixels` is the raw-pixel MLP reference |
-| `make_results.py` | `results.md`: backbone table + head table (lr picked on val, test mean ± SE) |
-| `tests/` | shapes, feature caching, fixed-seed determinism (CPU, synthetic data) |
+| `make_results.py` | `results.md`: backbone table + head tables (lr picked on val, test mean ± SE) + paired comparisons on the same test images |
+| `tests/` | shapes, feature caching, fixed-seed determinism, LUT trunk, McNemar (CPU, synthetic data) |
 | `exp_*/` | one folder per experiment (committed); `_cache/` holds datasets, checkpoints and features (gitignored) |
 
 ## Running
@@ -35,8 +35,10 @@ python experiments/lut-alexnet/run_backbones.py --exp exp_backbones_v1 --bn 0 --
 python experiments/lut-alexnet/make_results.py
 ```
 
-`run_all.sh` chains these in the order used for the 2026-10-20 runs. Both stages skip runs already in their
-`summary.json`, so an interrupted sweep is resumed by rerunning it.
+`run_all.sh` chains these in the order used for the 2026-10-20 dense runs; `run_conv3_lut_v1.sh` is the first
+dense-vs-LUT comparison (`--trunk lut`; the cartridge geometry is set with `--cartridge`, `--read-top-n`,
+`--lut-h/-tph/-nap/-d`). Both stages skip runs already in their `summary.json`, so an interrupted sweep is
+resumed by rerunning it.
 
 ## Protocol and its caveats
 
@@ -55,5 +57,12 @@ python experiments/lut-alexnet/make_results.py
 - **Determinism.** Same seed + same device + same inputs → bitwise-identical training on CPU (tested).
   A spot check on MPS (M1, torch 2.14.1; head and BN backbone) was bitwise identical too, but that is not
   guaranteed by PyTorch; across devices expect agreement within noise only.
+- **LUT trunk.** The reference cartridges run eager on the CPU (faster than MPS here: ~60 vs ~75 ms per
+  step at batch 256); `lutorch_ex` is imported from wherever the venv's editable `spiky` points, and each
+  invocation records that path and commit (`config.json` → `lutorch_ex`). The decompress projection starts at
+  zero (library default), so a fresh LUT head outputs only the readout bias. Weight decay applies to the
+  tables like any other ≥2-D weight.
+- **Paired comparison.** Test-set sampling noise (~±0.3 points at 90% on 10k images) exceeds the seed SE
+  of a head, so dense and LUT heads are compared on the same images, seed pair by seed pair (McNemar).
 - **Not wired yet:** W&B logging (not installed in this env); the metric legend that would go into the
   W&B notes is in each experiment's `config.json` (`metrics_legend`).

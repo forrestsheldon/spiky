@@ -1,16 +1,12 @@
 """Classifier heads: a pluggable *trunk* (in_dim -> width) followed by a linear readout (width -> classes).
 
-The trunk is the part the dense-vs-LUT comparison swaps. ``"mlp"`` is AlexNet's fc1-fc2, kept plain
-(Linear-ReLU-Dropout twice); fc3 is the readout and is shared by every trunk.
+The trunk is the part the dense-vs-LUT comparison swaps:
 
-Adding the LUT trunk (planned 2026-10-21): register a factory with the same signature, e.g.
+- ``"mlp"``: AlexNet's fc1-fc2, kept plain (Linear-ReLU-Dropout twice).
+- ``"lut"``: one lutorch_ex ``ProjectionMHL`` in place of fc1-fc2 (compress -> LUT cartridge -> decompress).
 
-    def lut_trunk(in_dim, width, spec, cartridge="ConfidenceLUT", **cartridge_kwargs):
-        cart = getattr(spiky.lutorch_ex, cartridge)(spec, **cartridge_kwargs)
-        return ProjectionMHL(cart, input_dim=in_dim, output_dim=width)
-    TRUNKS["lut"] = lut_trunk
-
-Anything mapping (N, in_dim) -> (N, width) works; the training loop and feature cache are unchanged.
+fc3 is the readout and is shared by every trunk. Anything mapping (N, in_dim) -> (N, width) can be registered
+in ``TRUNKS``; the training loop and feature cache are unchanged.
 """
 import torch.nn as nn
 
@@ -22,7 +18,30 @@ def mlp_trunk(in_dim, width, dropout=0.5):
     )
 
 
-TRUNKS = {"mlp": mlp_trunk}
+def lut_trunk(in_dim, width, *, cartridge="ConfidenceLUT", h=8, tph=64, nap=8, d=48, seed=0, **cartridge_kwargs):
+    """``ProjectionMHL``: compress in_dim -> h x d, a lutorch_ex cartridge (h heads x tph tables of 2**nap cells,
+    d-wide rows), decompress -> width. The library zero-initialises decompress, so a fresh trunk outputs zero.
+    ``seed`` draws the cartridge's anchors and initial tables; the projections use the global seed."""
+    from spiky import lutorch_ex as lx
+
+    spec = lx.LUTSpec(h_in=h, h_out=h, tph=tph, nap=nap, d_in=d, d_out=d)
+    cart = getattr(lx, cartridge)(spec, seed=seed, **cartridge_kwargs)
+    return lx.ProjectionMHL(cart, input_dim=in_dim, output_dim=width)
+
+
+TRUNKS = {"mlp": mlp_trunk, "lut": lut_trunk}
+
+
+def cost(head):
+    """Per-input arithmetic: multiply-adds in every nn.Linear, and rows read from LUT tables (each read is a
+    d_out-wide add, no multiplies)."""
+    linear = sum(m.in_features * m.out_features for m in head.modules() if isinstance(m, nn.Linear))
+    reads = 0
+    for m in head.modules():
+        spec = getattr(m, "spec", None)
+        if spec is not None and hasattr(spec, "n_tables"):
+            reads += spec.n_tables * getattr(m, "read_top_n", 2)
+    return {"linear_macs": linear, "lut_row_reads": reads}
 
 
 class Head(nn.Module):

@@ -2,7 +2,8 @@
 
 config.json lists every distinct invocation that wrote to the folder (stages run one dataset group at a time
 add to it rather than overwrite it). The summary is rewritten after every run, so an interrupted sweep restarts
-where it stopped (``done``).
+where it stopped (``done``). predictions.jsonl (optional) holds each run's predicted test classes, one JSON line
+per run, so models can be compared image by image (``mcnemar``).
 """
 import csv
 import json
@@ -33,6 +34,7 @@ class ExpDir:
         self.summary = json.loads(self.summary_path.read_text()) if self.summary_path.exists() else {}
         self.summary.setdefault("runs", {})
         self.metrics_path = self.path / "metrics.csv"
+        self.predicted = set(load_predictions(self.path))
 
     def done(self, run_id):
         return run_id in self.summary["runs"]
@@ -57,8 +59,36 @@ class ExpDir:
         self.summary.setdefault("selected", {})[cell] = value
         self._write()
 
+    def save_predictions(self, run_id, pred):
+        with open(self.path / "predictions.jsonl", "a") as f:
+            f.write(json.dumps({"run": run_id, "test_pred": [int(v) for v in pred]}) + "\n")
+        self.predicted.add(run_id)
+
     def _write(self):
         self.summary_path.write_text(json.dumps(self.summary, indent=2) + "\n")
+
+
+def load_predictions(path):
+    """run id -> list of predicted test classes, from an experiment folder's predictions.jsonl (later lines win)."""
+    path = Path(path) / "predictions.jsonl"
+    if not path.exists():
+        return {}
+    with open(path) as f:
+        return {r["run"]: r["test_pred"] for r in map(json.loads, f)}
+
+
+def mcnemar(pred_a, pred_b, labels):
+    """Paired comparison of two classifiers on the same test images.
+
+    Returns (b, c, p): b = images only A gets right, c = images only B gets right, p = two-sided McNemar p-value
+    (normal approximation with continuity correction; images both get right or both get wrong carry no information).
+    """
+    b = sum(1 for a, o, y in zip(pred_a, pred_b, labels) if a == y and o != y)
+    c = sum(1 for a, o, y in zip(pred_a, pred_b, labels) if a != y and o == y)
+    if b + c == 0:
+        return b, c, 1.0
+    z = max(abs(b - c) - 1, 0) / math.sqrt(b + c)
+    return b, c, math.erfc(z / math.sqrt(2))
 
 
 def mean_se(xs):

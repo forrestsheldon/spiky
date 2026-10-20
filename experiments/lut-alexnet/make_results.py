@@ -4,7 +4,8 @@
 
 For each (dataset, input, trunk, width) the learning rate is the one run_heads selected on val (its
 summary's "selected"), or else the one with the best mean val accuracy; the test column is that lr's test
-accuracy. The full lr sweep follows in a second table.
+accuracy. The full lr sweep follows in a second table. Where the experiment saved test predictions, a paired
+table compares every two head configs on the same inputs, seed by seed, on the same test images.
 """
 import argparse
 import json
@@ -14,7 +15,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from harness.runlog import mean_se  # noqa: E402
+from harness.runlog import load_predictions, mcnemar, mean_se  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 ORDER = {"mnist": 0, "fmnist": 1, "cifar10": 2, "pixels": 0, "conv3": 1, "conv4": 2, "final": 3}
@@ -27,6 +28,45 @@ def pct(m, se=None):
     return f"{s} ± —" if math.isnan(se) else f"{s} ± {100 * se:.2f}"
 
 
+def macs(r):
+    """Multiply-adds per input in the head's linear layers (older runs did not record it: plain MLP only)."""
+    if "linear_macs" in r:
+        return r["linear_macs"]
+    w = r["width"]
+    return r["in_dim"] * w + w * w + w * 10
+
+
+def trunk_line(inv):
+    tag = inv.get("trunk_tag", inv["trunk"])
+    return f"`{tag}`" + (f" (dropout {inv['dropout']})" if inv["trunk"] == "mlp" else "")
+
+
+def paired(best, groups, preds):
+    """Rows comparing every two head configs of a (dataset, input): accuracy difference per seed pair and the
+    McNemar test on the same test images."""
+    rows = []
+    cells = sorted(best, key=lambda k: (ORDER[k[0]], ORDER[k[1]], k[2], -k[3]))
+    for i, a in enumerate(cells):
+        for bk in cells[i + 1:]:
+            if a[:2] != bk[:2] or f"_labels__{a[0]}" not in preds:
+                continue
+            labels = preds[f"_labels__{a[0]}"]
+            ra = {r["seed"]: r for r in groups[(*a, best[a][1])]}
+            rb = {r["seed"]: r for r in groups[(*bk, best[bk][1])]}
+            diffs, tests = [], []
+            for seed in sorted(set(ra) & set(rb)):
+                ida, idb = (f"{k[0]}__{k[1]}__{k[2]}_W{k[3]}__lr{best[k][1]:g}__s{seed}" for k in (a, bk))
+                if ida in preds and idb in preds:
+                    diffs.append(ra[seed]["final_test_acc"] - rb[seed]["final_test_acc"])
+                    tests.append(mcnemar(preds[ida], preds[idb], labels))
+            if diffs:
+                m, se = mean_se(diffs)
+                detail = "; ".join(f"{b}/{c}, p={p:.2g}" for b, c, p in tests)
+                rows.append(f"| {a[0]} | {a[1]} | {a[2]} W={a[3]} | {bk[2]} W={bk[3]} | "
+                            f"{100 * m:+.2f} ± {'—' if se != se else f'{100 * se:.2f}'} | {detail} |")
+    return rows
+
+
 def head_groups(runs):
     groups = defaultdict(list)
     for r in runs.values():
@@ -37,7 +77,7 @@ def head_groups(runs):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--backbones", default="exp_backbones_v1")
-    ap.add_argument("--heads", nargs="+", default=["exp_dense_heads_v1"])
+    ap.add_argument("--heads", nargs="+", default=["exp_dense_heads_v1", "exp_conv3_dense_vs_lut_v1"])
     ap.add_argument("--out", default="results.md")
     args = ap.parse_args()
 
@@ -63,7 +103,8 @@ def main():
         path = HERE / heads / "summary.json"
         if not path.exists():
             continue
-        cfg = json.loads((HERE / heads / "config.json").read_text())["invocations"][-1]
+        invocations = json.loads((HERE / heads / "config.json").read_text())["invocations"]
+        cfg = invocations[-1]
         summary = json.loads(path.read_text())
         groups = head_groups(summary["runs"])
         best = {}
@@ -74,16 +115,24 @@ def main():
             if key not in best or val > best[key][0]:
                 best[key] = (val, lr)
         lines += [f"## Heads on cached features: `{heads}`", "",
-                  f"Features from `{cfg['backbone_features']}`; {cfg['optim']['epochs']} epochs, "
-                  f"dropout {cfg['dropout']}. `pixels` = raw-pixel MLP reference (no backbone).",
+                  f"Features from `{cfg['backbone_features']}`; {cfg['optim']['epochs']} epochs. Trunks: "
+                  + ", ".join(dict.fromkeys(trunk_line(i) for i in invocations))
+                  + ". `pixels` = raw-pixel MLP reference (no backbone). MACs = multiply-adds per input in the"
+                  " head's linear layers (a LUT trunk also adds table rows, no multiplies).",
                   f"Selection: {cfg['selection']}.", "",
-                  "| dataset | input | in dim | trunk | W | lr | train | val | test | params | n |",
-                  "|---|---|---|---|---|---|---|---|---|---|---|"]
+                  "| dataset | input | in dim | trunk | W | lr | train | val | test | params | MACs | n |",
+                  "|---|---|---|---|---|---|---|---|---|---|---|---|"]
         for key in sorted(best, key=lambda k: (ORDER[k[0]], ORDER[k[1]], k[2], -k[3])):
             rs = groups[(*key, best[key][1])]
             tr, va, te = (mean_se([r[f"final_{s}_acc"] for r in rs]) for s in ("train", "val", "test"))
             lines.append(f"| {key[0]} | {key[1]} | {rs[0]['in_dim']} | {key[2]} | {key[3]} | {best[key][1]:g} | "
-                         f"{pct(tr[0])} | {pct(*va)} | {pct(*te)} | {rs[0]['params'] / 1e6:.2f}M | {len(rs)} |")
+                         f"{pct(tr[0])} | {pct(*va)} | {pct(*te)} | {rs[0]['params'] / 1e6:.2f}M | "
+                         f"{macs(rs[0]) / 1e6:.2f}M | {len(rs)} |")
+        rows = paired(best, groups, load_predictions(HERE / heads))
+        if rows:
+            lines += ["", "Paired on the same test images (selected lr each side). Δ = test acc A − B, mean ± SE "
+                      "over seed pairs; per seed: b/c = images only A / only B gets right, p = McNemar.", "",
+                      "| dataset | input | A | B | Δ test | per seed b/c, p |", "|---|---|---|---|---|---|", *rows]
         lines += ["", "<details><summary>Full lr sweep</summary>", "",
                   "| dataset | input | trunk | W | lr | val | test | n |", "|---|---|---|---|---|---|---|---|"]
         for (ds, inp, trunk, w, lr) in sorted(groups, key=lambda k: (ORDER[k[0]], ORDER[k[1]], k[2], -k[3], k[4])):
