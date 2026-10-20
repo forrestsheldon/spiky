@@ -9,8 +9,11 @@ of train before backbone training. Backbones are a single seed, so their rows ca
 | dataset | BatchNorm | epochs | train | val | test | params (backbone + head) | time |
 |---|---|---|---|---|---|---|---|
 | mnist | yes | 10 | 99.96 | 99.50 | 99.63 | 2.25M + 33.60M | 12 min |
+| mnist | no | 10 | 99.99 | 99.32 | 99.54 | 2.25M + 33.60M | 12 min |
 | fmnist | yes | 30 | 97.43 | 94.56 | 94.29 | 2.25M + 33.60M | 62 min |
+| fmnist | no | 30 | 97.51 | 94.46 | 93.95 | 2.25M + 33.60M | 35 min |
 | cifar10 | yes | 30 | 97.73 | 89.68 | 89.89 | 2.25M + 33.60M | 27 min |
+| cifar10 | no | 30 | 98.75 | 87.72 | 87.99 | 2.25M + 33.60M | 28 min |
 
 ## Heads on cached features: `exp_dense_heads_v1`
 

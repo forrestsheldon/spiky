@@ -56,6 +56,8 @@ def main():
     ap.add_argument("--tap-pool", type=int, default=2)
     ap.add_argument("--epochs", type=int, help="override the per-dataset epoch count")
     ap.add_argument("--no-features", action="store_true", help="train only; do not cache features")
+    ap.add_argument("--overwrite", action="store_true",
+                    help="replace a checkpoint that exists but is not recorded in this experiment's summary")
     ap.add_argument("--device")
     ap.add_argument("--smoke", action="store_true")
     args = ap.parse_args()
@@ -96,7 +98,12 @@ def main():
                 print(f"[{run_id}] done; loading checkpoint")
                 model.load_state_dict(torch.load(ckpt, weights_only=True))
             else:
-                print(f"[{run_id}] training {cfg.epochs} epochs on {device}, {n_params(model) / 1e6:.1f}M params")
+                if ckpt.exists() and not args.overwrite:
+                    sys.exit(f"{ckpt} exists but {run_id} is not in {exp_path / 'summary.json'}: it belongs to "
+                             "another experiment (or a run interrupted before it was recorded). Pass --overwrite "
+                             "to replace it.")
+                print(f"[{run_id}] training {cfg.epochs} epochs on {device}, {n_params(model) / 1e6:.1f}M params",
+                      flush=True)
                 t0 = time.time()
                 log = exp.logger(run_id)
 

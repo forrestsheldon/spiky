@@ -12,10 +12,13 @@ from pathlib import Path
 
 
 def git_state():
+    """HEAD commit, and whether the experiment's *code* differs from it (result folders and results.md, which
+    runs write while later stages start, are excluded)."""
     def git(*args):
         return subprocess.run(["git", *args], capture_output=True, text=True,
                               cwd=Path(__file__).resolve().parent.parent).stdout.strip()
-    return {"commit": git("rev-parse", "HEAD"), "dirty": bool(git("status", "--porcelain", "--", "."))}
+    code = [".", ":(exclude)exp_*", ":(exclude)results.md"]
+    return {"commit": git("rev-parse", "HEAD"), "dirty": bool(git("status", "--porcelain", "--", *code))}
 
 
 class ExpDir:
