@@ -1,0 +1,2302 @@
+{
+  "runs": {
+    "mnist__pixels__mlp_W4096__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9984727272727273,
+      "final_val_acc": 0.9832,
+      "final_test_acc": 0.9848,
+      "train_s": 136.47129797935486,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W4096__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9983818181818181,
+      "final_val_acc": 0.9854,
+      "final_test_acc": 0.9857,
+      "train_s": 135.32345581054688,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W4096__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9912,
+      "final_val_acc": 0.9784,
+      "final_test_acc": 0.9797,
+      "train_s": 135.94601488113403,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W4096__lr0.001__s1": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 21020682,
+      "final_train_acc": 0.9983272727272727,
+      "final_val_acc": 0.9838,
+      "final_test_acc": 0.9872,
+      "train_s": 135.78240203857422,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W4096__lr0.001__s2": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 21020682,
+      "final_train_acc": 0.9983090909090909,
+      "final_val_acc": 0.9832,
+      "final_test_acc": 0.987,
+      "train_s": 135.79289960861206,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W1024__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9910181818181818,
+      "final_val_acc": 0.979,
+      "final_test_acc": 0.981,
+      "train_s": 17.88706088066101,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W1024__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9963818181818181,
+      "final_val_acc": 0.9832,
+      "final_test_acc": 0.9852,
+      "train_s": 17.635875940322876,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W1024__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9933818181818181,
+      "final_val_acc": 0.9824,
+      "final_test_acc": 0.983,
+      "train_s": 17.765573263168335,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W1024__lr0.001__s1": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 2109450,
+      "final_train_acc": 0.9961272727272728,
+      "final_val_acc": 0.9828,
+      "final_test_acc": 0.9853,
+      "train_s": 17.652324676513672,
+      "source": "pixels"
+    },
+    "mnist__pixels__mlp_W1024__lr0.001__s2": {
+      "dataset": "mnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 2109450,
+      "final_train_acc": 0.9962909090909091,
+      "final_val_acc": 0.981,
+      "final_test_acc": 0.9861,
+      "train_s": 17.79083013534546,
+      "source": "pixels"
+    },
+    "mnist__final__mlp_W4096__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9998,
+      "final_val_acc": 0.9934,
+      "final_test_acc": 0.9956,
+      "train_s": 200.6385531425476,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W4096__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9997454545454545,
+      "final_val_acc": 0.9942,
+      "final_test_acc": 0.9957,
+      "train_s": 200.56784582138062,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W4096__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9996727272727273,
+      "final_val_acc": 0.9936,
+      "final_test_acc": 0.9956,
+      "train_s": 214.60580110549927,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W4096__lr0.001__s1": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 33603594,
+      "final_train_acc": 0.9997454545454545,
+      "final_val_acc": 0.9938,
+      "final_test_acc": 0.9953,
+      "train_s": 205.2745499610901,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W4096__lr0.001__s2": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 33603594,
+      "final_train_acc": 0.9997454545454545,
+      "final_val_acc": 0.9942,
+      "final_test_acc": 0.9951,
+      "train_s": 202.57398414611816,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W1024__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9997636363636364,
+      "final_val_acc": 0.9944,
+      "final_test_acc": 0.996,
+      "train_s": 36.45055913925171,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W1024__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9997272727272727,
+      "final_val_acc": 0.9934,
+      "final_test_acc": 0.9957,
+      "train_s": 36.8891499042511,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W1024__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9994,
+      "final_val_acc": 0.9938,
+      "final_test_acc": 0.9945,
+      "train_s": 36.97166633605957,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W1024__lr0.0003__s1": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 5255178,
+      "final_train_acc": 0.9997818181818182,
+      "final_val_acc": 0.9944,
+      "final_test_acc": 0.9959,
+      "train_s": 36.61235499382019,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__final__mlp_W1024__lr0.0003__s2": {
+      "dataset": "mnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 5255178,
+      "final_train_acc": 0.9998,
+      "final_val_acc": 0.9938,
+      "final_test_acc": 0.9956,
+      "train_s": 37.01468586921692,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W4096__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9991636363636364,
+      "final_val_acc": 0.9944,
+      "final_test_acc": 0.9951,
+      "train_s": 136.4301528930664,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W4096__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9988545454545454,
+      "final_val_acc": 0.994,
+      "final_test_acc": 0.9951,
+      "train_s": 137.96898198127747,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W4096__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9983090909090909,
+      "final_val_acc": 0.9942,
+      "final_test_acc": 0.9938,
+      "train_s": 151.98978805541992,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W4096__lr0.0003__s1": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 21020682,
+      "final_train_acc": 0.9991272727272728,
+      "final_val_acc": 0.9944,
+      "final_test_acc": 0.995,
+      "train_s": 148.4602129459381,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W4096__lr0.0003__s2": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 21020682,
+      "final_train_acc": 0.999109090909091,
+      "final_val_acc": 0.9944,
+      "final_test_acc": 0.995,
+      "train_s": 144.6711230278015,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W1024__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9985090909090909,
+      "final_val_acc": 0.9938,
+      "final_test_acc": 0.9943,
+      "train_s": 19.10313606262207,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W1024__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9988181818181818,
+      "final_val_acc": 0.994,
+      "final_test_acc": 0.9948,
+      "train_s": 17.990379095077515,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W1024__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.998109090909091,
+      "final_val_acc": 0.9936,
+      "final_test_acc": 0.9939,
+      "train_s": 18.941115140914917,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W1024__lr0.001__s1": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 2109450,
+      "final_train_acc": 0.9988727272727272,
+      "final_val_acc": 0.9944,
+      "final_test_acc": 0.9952,
+      "train_s": 17.94114923477173,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv4__mlp_W1024__lr0.001__s2": {
+      "dataset": "mnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 2109450,
+      "final_train_acc": 0.9988727272727272,
+      "final_val_acc": 0.9942,
+      "final_test_acc": 0.9946,
+      "train_s": 18.459995985031128,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W4096__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.9971454545454546,
+      "final_val_acc": 0.9932,
+      "final_test_acc": 0.9923,
+      "train_s": 162.27202892303467,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W4096__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.9964909090909091,
+      "final_val_acc": 0.9926,
+      "final_test_acc": 0.9932,
+      "train_s": 149.30825114250183,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W4096__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.9931636363636364,
+      "final_val_acc": 0.99,
+      "final_test_acc": 0.9898,
+      "train_s": 147.4664409160614,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W4096__lr0.0003__s1": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 23117834,
+      "final_train_acc": 0.9971454545454546,
+      "final_val_acc": 0.9932,
+      "final_test_acc": 0.9928,
+      "train_s": 148.16083097457886,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W4096__lr0.0003__s2": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 23117834,
+      "final_train_acc": 0.9971818181818182,
+      "final_val_acc": 0.9934,
+      "final_test_acc": 0.9926,
+      "train_s": 146.88595294952393,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W1024__lr0.0003__s0": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.9963454545454545,
+      "final_val_acc": 0.9922,
+      "final_test_acc": 0.9915,
+      "train_s": 20.640776872634888,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W1024__lr0.001__s0": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.9966545454545455,
+      "final_val_acc": 0.9926,
+      "final_test_acc": 0.9928,
+      "train_s": 20.57770299911499,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W1024__lr0.003__s0": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.9943636363636363,
+      "final_val_acc": 0.9924,
+      "final_test_acc": 0.9913,
+      "train_s": 20.79087209701538,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W1024__lr0.001__s1": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 2633738,
+      "final_train_acc": 0.9967636363636364,
+      "final_val_acc": 0.9926,
+      "final_test_acc": 0.9926,
+      "train_s": 20.79290795326233,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "mnist__conv3__mlp_W1024__lr0.001__s2": {
+      "dataset": "mnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 2633738,
+      "final_train_acc": 0.9967454545454545,
+      "final_val_acc": 0.9928,
+      "final_test_acc": 0.9924,
+      "train_s": 20.869863748550415,
+      "source": "features/mnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "mnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "2d73553a9aa5",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__pixels__mlp_W4096__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.922290909090909,
+      "final_val_acc": 0.896,
+      "final_test_acc": 0.8915,
+      "train_s": 136.9820032119751,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W4096__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9166363636363636,
+      "final_val_acc": 0.8938,
+      "final_test_acc": 0.8889,
+      "train_s": 137.10865569114685,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W4096__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.8903636363636364,
+      "final_val_acc": 0.8764,
+      "final_test_acc": 0.8687,
+      "train_s": 138.00355887413025,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W4096__lr0.0003__s1": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 21020682,
+      "final_train_acc": 0.9215272727272728,
+      "final_val_acc": 0.8978,
+      "final_test_acc": 0.8919,
+      "train_s": 136.6245949268341,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W4096__lr0.0003__s2": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 21020682,
+      "final_train_acc": 0.9224727272727272,
+      "final_val_acc": 0.896,
+      "final_test_acc": 0.8926,
+      "train_s": 139.78647303581238,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W1024__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.904,
+      "final_val_acc": 0.8866,
+      "final_test_acc": 0.8822,
+      "train_s": 17.46636700630188,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W1024__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9104545454545454,
+      "final_val_acc": 0.893,
+      "final_test_acc": 0.8877,
+      "train_s": 17.727555751800537,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W1024__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.8965636363636363,
+      "final_val_acc": 0.8854,
+      "final_test_acc": 0.8782,
+      "train_s": 17.84835386276245,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W1024__lr0.001__s1": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 2109450,
+      "final_train_acc": 0.9106363636363637,
+      "final_val_acc": 0.8944,
+      "final_test_acc": 0.888,
+      "train_s": 18.065245151519775,
+      "source": "pixels"
+    },
+    "fmnist__pixels__mlp_W1024__lr0.001__s2": {
+      "dataset": "fmnist",
+      "input": "pixels",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 2109450,
+      "final_train_acc": 0.9104,
+      "final_val_acc": 0.8936,
+      "final_test_acc": 0.8868,
+      "train_s": 18.056890964508057,
+      "source": "pixels"
+    },
+    "fmnist__final__mlp_W4096__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9937090909090909,
+      "final_val_acc": 0.943,
+      "final_test_acc": 0.9389,
+      "train_s": 202.9191858768463,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W4096__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9923818181818181,
+      "final_val_acc": 0.9426,
+      "final_test_acc": 0.9401,
+      "train_s": 215.7062361240387,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W4096__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9901090909090909,
+      "final_val_acc": 0.9446,
+      "final_test_acc": 0.94,
+      "train_s": 232.1487009525299,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W4096__lr0.003__s1": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 1,
+      "params": 33603594,
+      "final_train_acc": 0.9901272727272727,
+      "final_val_acc": 0.9448,
+      "final_test_acc": 0.9398,
+      "train_s": 229.1113007068634,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W4096__lr0.003__s2": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 2,
+      "params": 33603594,
+      "final_train_acc": 0.9848363636363636,
+      "final_val_acc": 0.9448,
+      "final_test_acc": 0.9403,
+      "train_s": 218.43090510368347,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W1024__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9834545454545455,
+      "final_val_acc": 0.9438,
+      "final_test_acc": 0.9401,
+      "train_s": 36.56600284576416,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W1024__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9919818181818182,
+      "final_val_acc": 0.9422,
+      "final_test_acc": 0.9392,
+      "train_s": 38.63118505477905,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W1024__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9878727272727272,
+      "final_val_acc": 0.943,
+      "final_test_acc": 0.9408,
+      "train_s": 37.87726306915283,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W1024__lr0.0003__s1": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 5255178,
+      "final_train_acc": 0.9837818181818182,
+      "final_val_acc": 0.9446,
+      "final_test_acc": 0.9399,
+      "train_s": 38.57645106315613,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__final__mlp_W1024__lr0.0003__s2": {
+      "dataset": "fmnist",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 5255178,
+      "final_train_acc": 0.984,
+      "final_val_acc": 0.9432,
+      "final_test_acc": 0.9395,
+      "train_s": 38.78070402145386,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W4096__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9635818181818182,
+      "final_val_acc": 0.9418,
+      "final_test_acc": 0.9354,
+      "train_s": 139.81603503227234,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W4096__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9632181818181819,
+      "final_val_acc": 0.9406,
+      "final_test_acc": 0.9357,
+      "train_s": 137.70105004310608,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W4096__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9568909090909091,
+      "final_val_acc": 0.9408,
+      "final_test_acc": 0.9326,
+      "train_s": 152.68647503852844,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W4096__lr0.0003__s1": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 21020682,
+      "final_train_acc": 0.9634727272727273,
+      "final_val_acc": 0.9412,
+      "final_test_acc": 0.9362,
+      "train_s": 145.28000712394714,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W4096__lr0.0003__s2": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 21020682,
+      "final_train_acc": 0.9634727272727273,
+      "final_val_acc": 0.9408,
+      "final_test_acc": 0.9358,
+      "train_s": 140.24729585647583,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W1024__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9586181818181818,
+      "final_val_acc": 0.9426,
+      "final_test_acc": 0.9342,
+      "train_s": 16.213638305664062,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W1024__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9619454545454545,
+      "final_val_acc": 0.9426,
+      "final_test_acc": 0.9352,
+      "train_s": 16.52317500114441,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W1024__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9589454545454545,
+      "final_val_acc": 0.9412,
+      "final_test_acc": 0.9347,
+      "train_s": 15.488140106201172,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W1024__lr0.0003__s1": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 2109450,
+      "final_train_acc": 0.9582727272727273,
+      "final_val_acc": 0.9424,
+      "final_test_acc": 0.9342,
+      "train_s": 15.477699041366577,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv4__mlp_W1024__lr0.0003__s2": {
+      "dataset": "fmnist",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 2109450,
+      "final_train_acc": 0.9584,
+      "final_val_acc": 0.943,
+      "final_test_acc": 0.9341,
+      "train_s": 17.024298191070557,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W4096__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.9459636363636363,
+      "final_val_acc": 0.9358,
+      "final_test_acc": 0.9291,
+      "train_s": 135.52699184417725,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W4096__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.9439090909090909,
+      "final_val_acc": 0.9346,
+      "final_test_acc": 0.9286,
+      "train_s": 136.9995219707489,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W4096__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.9314,
+      "final_val_acc": 0.922,
+      "final_test_acc": 0.9149,
+      "train_s": 135.70481991767883,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W4096__lr0.0003__s1": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 23117834,
+      "final_train_acc": 0.9458363636363636,
+      "final_val_acc": 0.9354,
+      "final_test_acc": 0.929,
+      "train_s": 150.76500487327576,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W4096__lr0.0003__s2": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 23117834,
+      "final_train_acc": 0.9458727272727273,
+      "final_val_acc": 0.9366,
+      "final_test_acc": 0.9293,
+      "train_s": 136.59724807739258,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W1024__lr0.0003__s0": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.9413818181818182,
+      "final_val_acc": 0.9334,
+      "final_test_acc": 0.9267,
+      "train_s": 18.681605100631714,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W1024__lr0.001__s0": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.9438181818181818,
+      "final_val_acc": 0.9346,
+      "final_test_acc": 0.9282,
+      "train_s": 19.01876473426819,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W1024__lr0.003__s0": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.9366909090909091,
+      "final_val_acc": 0.9298,
+      "final_test_acc": 0.9222,
+      "train_s": 18.730025053024292,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W1024__lr0.001__s1": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 2633738,
+      "final_train_acc": 0.9437454545454546,
+      "final_val_acc": 0.9352,
+      "final_test_acc": 0.9287,
+      "train_s": 18.911126136779785,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "fmnist__conv3__mlp_W1024__lr0.001__s2": {
+      "dataset": "fmnist",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 2633738,
+      "final_train_acc": 0.9441272727272727,
+      "final_val_acc": 0.9334,
+      "final_test_acc": 0.9277,
+      "train_s": 18.963592052459717,
+      "source": "features/fmnist__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "fmnist__alexnet_cifar_bn1",
+        "checkpoint_sha1": "795fd767ebf1",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 55000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    }
+  },
+  "selected": {
+    "mnist__pixels__mlp_W4096": 0.001,
+    "mnist__pixels__mlp_W1024": 0.001,
+    "mnist__final__mlp_W4096": 0.001,
+    "mnist__final__mlp_W1024": 0.0003,
+    "mnist__conv4__mlp_W4096": 0.0003,
+    "mnist__conv4__mlp_W1024": 0.001,
+    "mnist__conv3__mlp_W4096": 0.0003,
+    "mnist__conv3__mlp_W1024": 0.001,
+    "fmnist__pixels__mlp_W4096": 0.0003,
+    "fmnist__pixels__mlp_W1024": 0.001,
+    "fmnist__final__mlp_W4096": 0.003,
+    "fmnist__final__mlp_W1024": 0.0003,
+    "fmnist__conv4__mlp_W4096": 0.0003,
+    "fmnist__conv4__mlp_W1024": 0.0003,
+    "fmnist__conv3__mlp_W4096": 0.0003,
+    "fmnist__conv3__mlp_W1024": 0.001
+  }
+}

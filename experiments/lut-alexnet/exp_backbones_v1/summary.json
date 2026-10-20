@@ -20,6 +20,27 @@
       "train_s": 711.8975548744202,
       "checkpoint": "backbones/mnist__alexnet_cifar_bn1.pt",
       "checkpoint_sha1": "2d73553a9aa5"
+    },
+    "fmnist__alexnet_cifar_bn1": {
+      "dataset": "fmnist",
+      "batchnorm": true,
+      "seed": 0,
+      "optim": {
+        "epochs": 30,
+        "lr": 0.001,
+        "batch_size": 256,
+        "weight_decay": 0.05,
+        "pct_start": 0.25,
+        "label_smoothing": 0.0
+      },
+      "params_backbone": 2251584,
+      "params_head": 33603594,
+      "final_train_acc": 0.9743272727272727,
+      "final_val_acc": 0.9456,
+      "final_test_acc": 0.9429,
+      "train_s": 3713.7835216522217,
+      "checkpoint": "backbones/fmnist__alexnet_cifar_bn1.pt",
+      "checkpoint_sha1": "795fd767ebf1"
     }
   }
 }
