@@ -2279,6 +2279,1146 @@
           "test": 10000
         }
       }
+    },
+    "cifar10__pixels__mlp_W4096__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 29409290,
+      "final_train_acc": 0.6864222222222223,
+      "final_val_acc": 0.5526,
+      "final_test_acc": 0.5654,
+      "train_s": 136.37110495567322,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W4096__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 29409290,
+      "final_train_acc": 0.6409555555555555,
+      "final_val_acc": 0.5304,
+      "final_test_acc": 0.5427,
+      "train_s": 136.48380494117737,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W4096__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 29409290,
+      "final_train_acc": 0.4473111111111111,
+      "final_val_acc": 0.413,
+      "final_test_acc": 0.4246,
+      "train_s": 135.02237701416016,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W4096__lr0.0003__s1": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 29409290,
+      "final_train_acc": 0.6871777777777778,
+      "final_val_acc": 0.557,
+      "final_test_acc": 0.561,
+      "train_s": 135.8242847919464,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W4096__lr0.0003__s2": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 29409290,
+      "final_train_acc": 0.6880222222222222,
+      "final_val_acc": 0.5518,
+      "final_test_acc": 0.5603,
+      "train_s": 136.06639099121094,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W1024__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 4206602,
+      "final_train_acc": 0.6084,
+      "final_val_acc": 0.5276,
+      "final_test_acc": 0.543,
+      "train_s": 21.771383047103882,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W1024__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 4206602,
+      "final_train_acc": 0.6184222222222222,
+      "final_val_acc": 0.5328,
+      "final_test_acc": 0.5442,
+      "train_s": 21.87189817428589,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W1024__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 4206602,
+      "final_train_acc": 0.5136888888888889,
+      "final_val_acc": 0.4648,
+      "final_test_acc": 0.475,
+      "train_s": 21.920264959335327,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W1024__lr0.001__s1": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 4206602,
+      "final_train_acc": 0.6130666666666666,
+      "final_val_acc": 0.5312,
+      "final_test_acc": 0.5422,
+      "train_s": 22.118247270584106,
+      "source": "pixels"
+    },
+    "cifar10__pixels__mlp_W1024__lr0.001__s2": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 4206602,
+      "final_train_acc": 0.6129777777777777,
+      "final_val_acc": 0.5222,
+      "final_test_acc": 0.5436,
+      "train_s": 22.04774284362793,
+      "source": "pixels"
+    },
+    "cifar10__final__mlp_W4096__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9991555555555556,
+      "final_val_acc": 0.8926,
+      "final_test_acc": 0.8968,
+      "train_s": 151.9651608467102,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W4096__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.9984222222222222,
+      "final_val_acc": 0.893,
+      "final_test_acc": 0.8976,
+      "train_s": 151.27772092819214,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W4096__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 33603594,
+      "final_train_acc": 0.987,
+      "final_val_acc": 0.8924,
+      "final_test_acc": 0.8939,
+      "train_s": 149.49352097511292,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W4096__lr0.001__s1": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 33603594,
+      "final_train_acc": 0.9985333333333334,
+      "final_val_acc": 0.891,
+      "final_test_acc": 0.8957,
+      "train_s": 172.52179312705994,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W4096__lr0.001__s2": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 33603594,
+      "final_train_acc": 0.9984444444444445,
+      "final_val_acc": 0.894,
+      "final_test_acc": 0.8962,
+      "train_s": 173.72312784194946,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W1024__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9953555555555555,
+      "final_val_acc": 0.8932,
+      "final_test_acc": 0.8956,
+      "train_s": 33.575899839401245,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W1024__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9967777777777778,
+      "final_val_acc": 0.894,
+      "final_test_acc": 0.8981,
+      "train_s": 35.01797914505005,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W1024__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 5255178,
+      "final_train_acc": 0.9912222222222222,
+      "final_val_acc": 0.8956,
+      "final_test_acc": 0.8945,
+      "train_s": 34.54342985153198,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W1024__lr0.003__s1": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 1,
+      "params": 5255178,
+      "final_train_acc": 0.9912,
+      "final_val_acc": 0.894,
+      "final_test_acc": 0.8959,
+      "train_s": 30.400904893875122,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__final__mlp_W1024__lr0.003__s2": {
+      "dataset": "cifar10",
+      "input": "final",
+      "in_dim": 4096,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 2,
+      "params": 5255178,
+      "final_train_acc": 0.9911555555555556,
+      "final_val_acc": 0.8924,
+      "final_test_acc": 0.8943,
+      "train_s": 30.439122200012207,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W4096__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9553555555555555,
+      "final_val_acc": 0.871,
+      "final_test_acc": 0.8685,
+      "train_s": 117.07107090950012,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W4096__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9552666666666667,
+      "final_val_acc": 0.8726,
+      "final_test_acc": 0.8675,
+      "train_s": 114.98856782913208,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W4096__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 21020682,
+      "final_train_acc": 0.9376888888888889,
+      "final_val_acc": 0.8652,
+      "final_test_acc": 0.8633,
+      "train_s": 116.76418495178223,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W4096__lr0.001__s1": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 21020682,
+      "final_train_acc": 0.9553555555555555,
+      "final_val_acc": 0.874,
+      "final_test_acc": 0.8698,
+      "train_s": 112.72552704811096,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W4096__lr0.001__s2": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 21020682,
+      "final_train_acc": 0.9544888888888889,
+      "final_val_acc": 0.8738,
+      "final_test_acc": 0.8701,
+      "train_s": 119.48901796340942,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W1024__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9368222222222222,
+      "final_val_acc": 0.8676,
+      "final_test_acc": 0.8647,
+      "train_s": 15.666080951690674,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W1024__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9484222222222223,
+      "final_val_acc": 0.8694,
+      "final_test_acc": 0.8669,
+      "train_s": 15.054244995117188,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W1024__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2109450,
+      "final_train_acc": 0.9378888888888889,
+      "final_val_acc": 0.8674,
+      "final_test_acc": 0.8651,
+      "train_s": 15.996800899505615,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W1024__lr0.001__s1": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 1,
+      "params": 2109450,
+      "final_train_acc": 0.9486,
+      "final_val_acc": 0.8688,
+      "final_test_acc": 0.8676,
+      "train_s": 15.109344959259033,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv4__mlp_W1024__lr0.001__s2": {
+      "dataset": "cifar10",
+      "input": "conv4",
+      "in_dim": 1024,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 2,
+      "params": 2109450,
+      "final_train_acc": 0.9484,
+      "final_val_acc": 0.8702,
+      "final_test_acc": 0.867,
+      "train_s": 14.865482091903687,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W4096__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.8953111111111111,
+      "final_val_acc": 0.8382,
+      "final_test_acc": 0.8297,
+      "train_s": 121.52417826652527,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W4096__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.8869111111111111,
+      "final_val_acc": 0.8358,
+      "final_test_acc": 0.8273,
+      "train_s": 121.81579518318176,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W4096__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 23117834,
+      "final_train_acc": 0.8434888888888888,
+      "final_val_acc": 0.812,
+      "final_test_acc": 0.8032,
+      "train_s": 120.76889896392822,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W4096__lr0.0003__s1": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 23117834,
+      "final_train_acc": 0.8954222222222222,
+      "final_val_acc": 0.8384,
+      "final_test_acc": 0.8333,
+      "train_s": 119.84912180900574,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W4096__lr0.0003__s2": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 4096,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 23117834,
+      "final_train_acc": 0.8955777777777778,
+      "final_val_acc": 0.8366,
+      "final_test_acc": 0.8307,
+      "train_s": 120.4775002002716,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W1024__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.8690666666666667,
+      "final_val_acc": 0.8316,
+      "final_test_acc": 0.8159,
+      "train_s": 17.315403938293457,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W1024__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.8796,
+      "final_val_acc": 0.8296,
+      "final_test_acc": 0.8221,
+      "train_s": 17.452106952667236,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W1024__lr0.003__s0": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.003,
+      "seed": 0,
+      "params": 2633738,
+      "final_train_acc": 0.8514222222222222,
+      "final_val_acc": 0.8172,
+      "final_test_acc": 0.8066,
+      "train_s": 17.10674524307251,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W1024__lr0.0003__s1": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 1,
+      "params": 2633738,
+      "final_train_acc": 0.8681333333333333,
+      "final_val_acc": 0.8308,
+      "final_test_acc": 0.8162,
+      "train_s": 17.067341089248657,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
+    },
+    "cifar10__conv3__mlp_W1024__lr0.0003__s2": {
+      "dataset": "cifar10",
+      "input": "conv3",
+      "in_dim": 1536,
+      "trunk": "mlp",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 2,
+      "params": 2633738,
+      "final_train_acc": 0.8691333333333333,
+      "final_val_acc": 0.8292,
+      "final_test_acc": 0.818,
+      "train_s": 19.682595014572144,
+      "source": "features/cifar10__alexnet_cifar_bn1.pt",
+      "feature_meta": {
+        "run_id": "cifar10__alexnet_cifar_bn1",
+        "checkpoint_sha1": "56b5ebca1fea",
+        "taps": [
+          "conv3",
+          "conv4",
+          "final"
+        ],
+        "tap_pool": 2,
+        "n_val": 5000,
+        "split_seed": 0,
+        "dtype": "float16",
+        "n": {
+          "train": 45000,
+          "val": 5000,
+          "test": 10000
+        }
+      }
     }
   },
   "selected": {
@@ -2297,6 +3437,14 @@
     "fmnist__conv4__mlp_W4096": 0.0003,
     "fmnist__conv4__mlp_W1024": 0.0003,
     "fmnist__conv3__mlp_W4096": 0.0003,
-    "fmnist__conv3__mlp_W1024": 0.001
+    "fmnist__conv3__mlp_W1024": 0.001,
+    "cifar10__pixels__mlp_W4096": 0.0003,
+    "cifar10__pixels__mlp_W1024": 0.001,
+    "cifar10__final__mlp_W4096": 0.001,
+    "cifar10__final__mlp_W1024": 0.003,
+    "cifar10__conv4__mlp_W4096": 0.001,
+    "cifar10__conv4__mlp_W1024": 0.001,
+    "cifar10__conv3__mlp_W4096": 0.0003,
+    "cifar10__conv3__mlp_W1024": 0.0003
   }
 }

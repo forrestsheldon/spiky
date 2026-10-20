@@ -56,6 +56,62 @@
         "epoch_s": "wall-clock seconds for the epoch including the val pass",
         "summary final_{train,val,test}_acc": "accuracy of the head after the last epoch, eval mode; test is computed once, at the end, and never used for selection"
       }
+    },
+    {
+      "stage": "heads",
+      "backbone_features": "alexnet_cifar_bn1",
+      "trunk": "mlp",
+      "dropout": 0.5,
+      "grid": {
+        "datasets": [
+          "cifar10"
+        ],
+        "inputs": [
+          "pixels",
+          "final",
+          "conv4",
+          "conv3"
+        ],
+        "widths": [
+          4096,
+          1024
+        ],
+        "lrs": [
+          0.0003,
+          0.001,
+          0.003
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ]
+      },
+      "optim": {
+        "epochs": 10,
+        "lr": "grid",
+        "batch_size": 256,
+        "weight_decay": 0.05,
+        "pct_start": 0.25,
+        "label_smoothing": 0.0
+      },
+      "selection": "lr per (dataset, input, trunk, width) by final val_acc of seed 0; the other seeds run at that lr only; test reported, never used for selection",
+      "device": "mps",
+      "torch": "2.14.1",
+      "git": {
+        "commit": "21b8c649fa5c4ad9e1d7f368a551c8f0e58f90a2",
+        "dirty": true
+      },
+      "smoke": false,
+      "metrics_legend": {
+        "epoch": "1-based epoch",
+        "lr_end": "one-cycle learning rate after the epoch's last step",
+        "train_loss": "mean cross-entropy over the epoch's training batches (dropout on), nats",
+        "train_acc": "fraction of training inputs classified correctly during the epoch (dropout on)",
+        "val_loss / val_acc": "cross-entropy (nats) / accuracy on the 5k held-out val split, eval mode",
+        "epoch_s": "wall-clock seconds for the epoch including the val pass",
+        "summary final_{train,val,test}_acc": "accuracy of the head after the last epoch, eval mode; test is computed once, at the end, and never used for selection"
+      }
     }
   ]
 }
