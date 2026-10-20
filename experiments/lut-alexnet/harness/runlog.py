@@ -14,7 +14,7 @@ from pathlib import Path
 def git_state():
     def git(*args):
         return subprocess.run(["git", *args], capture_output=True, text=True,
-                              cwd=Path(__file__).parent).stdout.strip()
+                              cwd=Path(__file__).resolve().parent.parent).stdout.strip()
     return {"commit": git("rev-parse", "HEAD"), "dirty": bool(git("status", "--porcelain", "--", "."))}
 
 
