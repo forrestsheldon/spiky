@@ -143,7 +143,7 @@ def main():
             res = {
                 "train": evaluate(head, *train, prepare)["acc"],
                 "val": hist[-1]["val_acc"],
-                "test": (test_pred == splits["test"]["y"]).float().mean().item(),
+                "test": (test_pred == splits["test"]["y"]).sum().item() / len(test_pred),
             }
             result = {
                 "dataset": ds, "input": inp, "in_dim": in_dim, "trunk": trunk_tag, "width": width, "lr": lr,
