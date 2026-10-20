@@ -96,8 +96,12 @@ def load(name, root=None):
 
 def random_crop_flip(x, gen, pad=4, flip=True):
     """Per-image random crop of the zero-padded batch plus horizontal flip; offsets drawn on the CPU ``gen``
-    so the result is the same on every device."""
-    n, _, h, w = x.shape
+    so the result is the same on every device.
+
+    The gather indexes straight into NCHW so the output has canonical strides. (Gathering in NHWC and permuting
+    back left 1-channel batches with strides (HW, 1, W, 1): "contiguous" to PyTorch, but ~1.8x slower through
+    the MPS convolutions.)"""
+    n, c, h, w = x.shape
     oy = torch.randint(0, 2 * pad + 1, (n,), generator=gen)
     ox = torch.randint(0, 2 * pad + 1, (n,), generator=gen)
     rows = oy[:, None] + torch.arange(h)
@@ -105,9 +109,10 @@ def random_crop_flip(x, gen, pad=4, flip=True):
     if flip:
         cols = torch.where((torch.rand(n, generator=gen) < 0.5)[:, None], cols.flip(1), cols)
     rows, cols = rows.to(x.device), cols.to(x.device)
-    xp = F.pad(x, (pad, pad, pad, pad)).permute(0, 2, 3, 1)  # (N, H+2p, W+2p, C)
-    idx = torch.arange(n, device=x.device)[:, None, None]
-    return xp[idx, rows[:, :, None], cols[:, None, :]].permute(0, 3, 1, 2).contiguous()
+    xp = F.pad(x, (pad, pad, pad, pad))
+    idx = torch.arange(n, device=x.device)[:, None, None, None]
+    ch = torch.arange(c, device=x.device)[None, :, None, None]
+    return xp[idx, ch, rows[:, None, :, None], cols[:, None, None, :]]
 
 
 def image_prepare(data: ImageData, device):

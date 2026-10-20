@@ -66,6 +66,29 @@ def test_random_crop_flip_shapes_and_determinism():
     assert a.shape == x.shape and torch.equal(a, b) and not torch.equal(a, c)
 
 
+def _crop_flip_nhwc_reference(x, gen, pad=4, flip=True):
+    """The first implementation (NHWC gather, permuted back); the NCHW gather must reproduce it exactly."""
+    import torch.nn.functional as F
+    n, _, h, w = x.shape
+    oy = torch.randint(0, 2 * pad + 1, (n,), generator=gen)
+    ox = torch.randint(0, 2 * pad + 1, (n,), generator=gen)
+    rows = oy[:, None] + torch.arange(h)
+    cols = ox[:, None] + torch.arange(w)
+    if flip:
+        cols = torch.where((torch.rand(n, generator=gen) < 0.5)[:, None], cols.flip(1), cols)
+    xp = F.pad(x, (pad, pad, pad, pad)).permute(0, 2, 3, 1)
+    idx = torch.arange(n)[:, None, None]
+    return xp[idx, rows[:, :, None], cols[:, None, :]].permute(0, 3, 1, 2).contiguous()
+
+
+@pytest.mark.parametrize("channels", [1, 3])
+def test_random_crop_flip_matches_reference_with_canonical_strides(channels):
+    x = torch.rand(16, channels, 32, 32)
+    out = D.random_crop_flip(x, torch.Generator().manual_seed(3))
+    assert torch.equal(out, _crop_flip_nhwc_reference(x, torch.Generator().manual_seed(3)))
+    assert out.stride() == (channels * 32 * 32, 32 * 32, 32, 1)
+
+
 def test_random_crop_flip_degenerate_cases():
     x = torch.rand(8, 1, 32, 32)
     assert torch.equal(D.random_crop_flip(x, torch.Generator(), pad=0, flip=False), x)

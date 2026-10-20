@@ -1,0 +1,25 @@
+{
+  "runs": {
+    "mnist__alexnet_cifar_bn1": {
+      "dataset": "mnist",
+      "batchnorm": true,
+      "seed": 0,
+      "optim": {
+        "epochs": 10,
+        "lr": 0.001,
+        "batch_size": 256,
+        "weight_decay": 0.05,
+        "pct_start": 0.25,
+        "label_smoothing": 0.0
+      },
+      "params_backbone": 2251584,
+      "params_head": 33603594,
+      "final_train_acc": 0.9996,
+      "final_val_acc": 0.995,
+      "final_test_acc": 0.9963,
+      "train_s": 711.8975548744202,
+      "checkpoint": "backbones/mnist__alexnet_cifar_bn1.pt",
+      "checkpoint_sha1": "2d73553a9aa5"
+    }
+  }
+}

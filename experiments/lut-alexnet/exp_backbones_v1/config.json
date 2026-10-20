@@ -1,0 +1,69 @@
+{
+  "invocations": [
+    {
+      "stage": "backbones",
+      "backbone": "alexnet_cifar",
+      "taps": [
+        "conv3",
+        "conv4",
+        "final"
+      ],
+      "tap_pool": 2,
+      "head": {
+        "kind": "mlp",
+        "width": 4096,
+        "dropout": 0.5
+      },
+      "datasets": [
+        "mnist",
+        "fmnist"
+      ],
+      "batchnorm": [
+        1
+      ],
+      "seed": 0,
+      "optim": {
+        "mnist": {
+          "epochs": 10,
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.05,
+          "pct_start": 0.25,
+          "label_smoothing": 0.0
+        },
+        "fmnist": {
+          "epochs": 30,
+          "lr": 0.001,
+          "batch_size": 256,
+          "weight_decay": 0.05,
+          "pct_start": 0.25,
+          "label_smoothing": 0.0
+        }
+      },
+      "split": {
+        "n_val": 5000,
+        "split_seed": 0
+      },
+      "augment": {
+        "mnist": false,
+        "fmnist": true
+      },
+      "device": "mps",
+      "torch": "2.14.1",
+      "git": {
+        "commit": "828e4c6190f5b52efee1e84866cb400573607d02",
+        "dirty": false
+      },
+      "smoke": false,
+      "metrics_legend": {
+        "epoch": "1-based epoch",
+        "lr_end": "one-cycle learning rate after the epoch's last step",
+        "train_loss": "mean cross-entropy over the epoch's training batches (augmented, dropout on), nats",
+        "train_acc": "fraction of training batches' images classified correctly during the epoch (augmented, dropout on)",
+        "val_loss / val_acc": "cross-entropy (nats) / accuracy on the 5k held-out val split, eval mode, no augmentation",
+        "epoch_s": "wall-clock seconds for the epoch including the val pass",
+        "summary final_{train,val,test}_acc": "accuracy of the end-to-end model after the last epoch, eval mode"
+      }
+    }
+  ]
+}
