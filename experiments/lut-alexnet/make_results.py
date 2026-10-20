@@ -63,7 +63,7 @@ def main():
         path = HERE / heads / "summary.json"
         if not path.exists():
             continue
-        cfg = json.loads((HERE / heads / "config.json").read_text())
+        cfg = json.loads((HERE / heads / "config.json").read_text())["invocations"][-1]
         summary = json.loads(path.read_text())
         groups = head_groups(summary["runs"])
         best = {}

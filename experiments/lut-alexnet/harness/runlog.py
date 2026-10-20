@@ -1,6 +1,8 @@
 """Experiment-folder bookkeeping: config.json, an append-only metrics.csv, and summary.json keyed by run id.
 
-The summary is rewritten after every run, so an interrupted sweep restarts where it stopped (``done``).
+config.json lists every distinct invocation that wrote to the folder (stages run one dataset group at a time
+add to it rather than overwrite it). The summary is rewritten after every run, so an interrupted sweep restarts
+where it stopped (``done``).
 """
 import csv
 import json
@@ -20,7 +22,10 @@ class ExpDir:
     def __init__(self, path, config):
         self.path = Path(path)
         self.path.mkdir(parents=True, exist_ok=True)
-        (self.path / "config.json").write_text(json.dumps(config, indent=2) + "\n")
+        config_path = self.path / "config.json"
+        configs = json.loads(config_path.read_text())["invocations"] if config_path.exists() else []
+        if config not in configs:
+            config_path.write_text(json.dumps({"invocations": configs + [config]}, indent=2) + "\n")
         self.summary_path = self.path / "summary.json"
         self.summary = json.loads(self.summary_path.read_text()) if self.summary_path.exists() else {}
         self.summary.setdefault("runs", {})

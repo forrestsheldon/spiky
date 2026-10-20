@@ -35,7 +35,8 @@ python experiments/lut-alexnet/run_backbones.py --exp exp_backbones_v1 --bn 0 --
 python experiments/lut-alexnet/make_results.py
 ```
 
-Both stages skip runs already in their `summary.json`, so an interrupted sweep is resumed by rerunning it.
+`run_all.sh` chains these in the order used for the 2026-10-20 runs. Both stages skip runs already in their
+`summary.json`, so an interrupted sweep is resumed by rerunning it.
 
 ## Protocol and its caveats
 

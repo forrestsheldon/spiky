@@ -2,6 +2,7 @@
 
     pytest experiments/lut-alexnet/tests
 """
+import json
 import math
 
 import pytest
@@ -227,6 +228,8 @@ def test_expdir_resume_and_mean_se(tmp_path):
     exp.record("r1", {"final_val_acc": 0.6})
     again = ExpDir(tmp_path / "exp", {"a": 1})
     assert again.done("r1") and not again.done("r2")
+    ExpDir(tmp_path / "exp", {"a": 2})
+    assert json.loads((tmp_path / "exp" / "config.json").read_text()) == {"invocations": [{"a": 1}, {"a": 2}]}
     assert (tmp_path / "exp" / "metrics.csv").read_text().splitlines()[0] == "run,epoch,val_acc"
     m, se = mean_se([0.90, 0.92, 0.94])
     assert m == pytest.approx(0.92) and se == pytest.approx(0.02 / math.sqrt(3))
