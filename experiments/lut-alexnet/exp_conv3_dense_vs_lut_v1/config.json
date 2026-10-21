@@ -126,6 +126,140 @@
         "epoch_s": "wall-clock seconds for the epoch including the val pass",
         "summary final_{train,val,test}_acc": "accuracy of the head after the last epoch, eval mode; test is computed once, at the end, and never used for selection"
       }
+    },
+    {
+      "stage": "heads",
+      "backbone_features": "alexnet_cifar_bn1",
+      "trunk": "lut",
+      "trunk_tag": "lut-ConfidenceLUT-n2-h8t16nap8d48",
+      "trunk_kwargs": {
+        "cartridge": "ConfidenceLUT",
+        "h": 8,
+        "tph": 16,
+        "nap": 8,
+        "d": 48,
+        "read_top_n": 2
+      },
+      "dropout": null,
+      "grid": {
+        "datasets": [
+          "cifar10"
+        ],
+        "inputs": [
+          "conv3"
+        ],
+        "widths": [
+          1024
+        ],
+        "lrs": [
+          0.0001,
+          0.0003,
+          0.001,
+          0.003,
+          0.01
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ]
+      },
+      "optim": {
+        "epochs": 10,
+        "lr": "grid",
+        "batch_size": 256,
+        "weight_decay": 0.05,
+        "pct_start": 0.25,
+        "label_smoothing": 0.0
+      },
+      "selection": "lr per (dataset, input, trunk, width) by final val_acc of seed 0; the other seeds run at that lr only; test reported, never used for selection",
+      "device": "cpu",
+      "torch": "2.14.1",
+      "git": {
+        "commit": "25df49e5c7a2c8a860bcb7b6d9f4f5a9bab8eb82",
+        "dirty": false
+      },
+      "smoke": false,
+      "lutorch_ex": {
+        "path": "/Users/forrestsheldon/Projects/spiky/src/spiky/lutorch_ex",
+        "commit": "686b01354eddc282012425c760e03c849d8b1d1c"
+      },
+      "metrics_legend": {
+        "epoch": "1-based epoch",
+        "lr_end": "one-cycle learning rate after the epoch's last step",
+        "train_loss": "mean cross-entropy over the epoch's training batches (dropout on), nats",
+        "train_acc": "fraction of training inputs classified correctly during the epoch (dropout on)",
+        "val_loss / val_acc": "cross-entropy (nats) / accuracy on the 5k held-out val split, eval mode",
+        "epoch_s": "wall-clock seconds for the epoch including the val pass",
+        "summary final_{train,val,test}_acc": "accuracy of the head after the last epoch, eval mode; test is computed once, at the end, and never used for selection"
+      }
+    },
+    {
+      "stage": "heads",
+      "backbone_features": "alexnet_cifar_bn1",
+      "trunk": "lut",
+      "trunk_tag": "lut-ConfidenceLUT-n2-h16t64nap8d64",
+      "trunk_kwargs": {
+        "cartridge": "ConfidenceLUT",
+        "h": 16,
+        "tph": 64,
+        "nap": 8,
+        "d": 64,
+        "read_top_n": 2
+      },
+      "dropout": null,
+      "grid": {
+        "datasets": [
+          "cifar10"
+        ],
+        "inputs": [
+          "conv3"
+        ],
+        "widths": [
+          1024
+        ],
+        "lrs": [
+          0.0001,
+          0.0003,
+          0.001,
+          0.003,
+          0.01
+        ],
+        "seeds": [
+          0,
+          1,
+          2
+        ]
+      },
+      "optim": {
+        "epochs": 10,
+        "lr": "grid",
+        "batch_size": 256,
+        "weight_decay": 0.05,
+        "pct_start": 0.25,
+        "label_smoothing": 0.0
+      },
+      "selection": "lr per (dataset, input, trunk, width) by final val_acc of seed 0; the other seeds run at that lr only; test reported, never used for selection",
+      "device": "cpu",
+      "torch": "2.14.1",
+      "git": {
+        "commit": "25df49e5c7a2c8a860bcb7b6d9f4f5a9bab8eb82",
+        "dirty": false
+      },
+      "smoke": false,
+      "lutorch_ex": {
+        "path": "/Users/forrestsheldon/Projects/spiky/src/spiky/lutorch_ex",
+        "commit": "686b01354eddc282012425c760e03c849d8b1d1c"
+      },
+      "metrics_legend": {
+        "epoch": "1-based epoch",
+        "lr_end": "one-cycle learning rate after the epoch's last step",
+        "train_loss": "mean cross-entropy over the epoch's training batches (dropout on), nats",
+        "train_acc": "fraction of training inputs classified correctly during the epoch (dropout on)",
+        "val_loss / val_acc": "cross-entropy (nats) / accuracy on the 5k held-out val split, eval mode",
+        "epoch_s": "wall-clock seconds for the epoch including the val pass",
+        "summary final_{train,val,test}_acc": "accuracy of the head after the last epoch, eval mode; test is computed once, at the end, and never used for selection"
+      }
     }
   ]
 }
