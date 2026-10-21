@@ -60,7 +60,11 @@ def trunk_config(args):
     if "Confidence" in args.cartridge:
         kw["read_top_n"] = args.read_top_n
         tag += f"-n{args.read_top_n}"
-    return f"{tag}-h{args.lut_h}t{args.lut_tph}nap{args.lut_nap}d{args.lut_d}", kw
+    tag += f"-h{args.lut_h}t{args.lut_tph}nap{args.lut_nap}d{args.lut_d}"
+    if args.table_dropout:
+        kw["table_dropout_rate"] = args.table_dropout
+        tag += f"-td{args.table_dropout:g}"
+    return tag, kw
 
 
 def lutorch_ex_state():
@@ -86,6 +90,8 @@ def main():
     ap.add_argument("--lut-tph", type=int, default=64, help="lut: tables per head")
     ap.add_argument("--lut-nap", type=int, default=8, help="lut: probes per table (2**nap cells)")
     ap.add_argument("--lut-d", type=int, default=48, help="lut: per-head width in and out")
+    ap.add_argument("--table-dropout", type=float, default=0.0,
+                    help="lut: whole-table dropout rate in training (the cartridge's table_dropout_rate)")
     ap.add_argument("--widths", nargs="+", type=int, default=[4096, 1024])
     ap.add_argument("--lrs", nargs="+", type=float, default=[3e-4, 1e-3, 3e-3])
     ap.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 2])

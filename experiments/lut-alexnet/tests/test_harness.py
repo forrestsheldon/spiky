@@ -284,6 +284,34 @@ def test_lut_head_learns_separable_features():
     assert evaluate(head, feats, y, cast_prepare(CPU))["acc"] > 0.9
 
 
+def test_lut_table_dropout_train_only_and_seeded():
+    pytest.importorskip("spiky.lutorch_ex")
+    seed_everything(0)
+    head = build_head("lut", 48, 32, 10, seed=0, table_dropout_rate=0.5, **LUT_SMALL)
+    with torch.no_grad():
+        head.trunk.decompress.weight.normal_()  # a fresh decompress is zero, which would hide the dropout
+    x = torch.randn(6, 48)
+    head.eval()
+    assert torch.equal(head(x), head(x))  # no dropout at evaluation
+    head.train()
+    torch.manual_seed(1)
+    a = head(x)
+    torch.manual_seed(1)
+    assert torch.equal(a, head(x)) and not torch.equal(a, head(x))  # seeded, and random from call to call
+
+
+def test_trunk_tags():
+    import argparse
+    import run_heads
+    base = dict(trunk="lut", cartridge="ConfidenceLUT", read_top_n=2, lut_h=8, lut_tph=64, lut_nap=8, lut_d=48,
+                table_dropout=0.0, dropout=0.5)
+    tag, kw = run_heads.trunk_config(argparse.Namespace(**base))
+    assert tag == "lut-ConfidenceLUT-n2-h8t64nap8d48" and "table_dropout_rate" not in kw  # unchanged when off
+    tag, kw = run_heads.trunk_config(argparse.Namespace(**{**base, "table_dropout": 0.2}))
+    assert tag == "lut-ConfidenceLUT-n2-h8t64nap8d48-td0.2" and kw["table_dropout_rate"] == 0.2
+    assert run_heads.trunk_config(argparse.Namespace(**{**base, "trunk": "mlp"})) == ("mlp", {"dropout": 0.5})
+
+
 def test_head_cost():
     assert cost(build_head("mlp", 1536, 1024, 10)) == {"linear_macs": 1536 * 1024 + 1024 * 1024 + 1024 * 10,
                                                         "lut_row_reads": 0}
