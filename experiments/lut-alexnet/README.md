@@ -36,7 +36,8 @@ python experiments/lut-alexnet/make_results.py
 ```
 
 `run_all.sh` chains these in the order used for the 2026-10-20 dense runs; `run_conv3_lut_v1.sh` is the first
-dense-vs-LUT comparison (`--trunk lut`; the cartridge geometry is set with `--cartridge`, `--read-top-n`,
+dense-vs-LUT comparison and `run_lut_round2.sh` the second (raw pixels, a parameter-matched LUT, `final` features;
+LUT and dense queues in parallel) (`--trunk lut`; the cartridge geometry is set with `--cartridge`, `--read-top-n`,
 `--lut-h/-tph/-nap/-d`). Both stages skip runs already in their `summary.json`, so an interrupted sweep is
 resumed by rerunning it.
 

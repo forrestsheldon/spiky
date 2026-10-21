@@ -4,8 +4,14 @@ config.json lists every distinct invocation that wrote to the folder (stages run
 add to it rather than overwrite it). The summary is rewritten after every run, so an interrupted sweep restarts
 where it stopped (``done``). predictions.jsonl (optional) holds each run's predicted test classes, one JSON line
 per run, so models can be compared image by image (``mcnemar``).
+
+Several processes may write to one folder at once (e.g. LUT heads on the CPU while dense heads use the GPU):
+every write holds an exclusive lock on ``<folder>/.lock``, and summary updates re-read the file and merge one entry
+rather than writing a process's own copy.
 """
+import contextlib
 import csv
+import fcntl
 import json
 import math
 import subprocess
@@ -26,46 +32,68 @@ class ExpDir:
     def __init__(self, path, config):
         self.path = Path(path)
         self.path.mkdir(parents=True, exist_ok=True)
-        config_path = self.path / "config.json"
-        configs = json.loads(config_path.read_text())["invocations"] if config_path.exists() else []
-        if config not in configs:
-            config_path.write_text(json.dumps({"invocations": configs + [config]}, indent=2) + "\n")
         self.summary_path = self.path / "summary.json"
-        self.summary = json.loads(self.summary_path.read_text()) if self.summary_path.exists() else {}
-        self.summary.setdefault("runs", {})
         self.metrics_path = self.path / "metrics.csv"
-        self.predicted = set(load_predictions(self.path))
+        with self._locked():
+            config_path = self.path / "config.json"
+            configs = json.loads(config_path.read_text())["invocations"] if config_path.exists() else []
+            if config not in configs:
+                config_path.write_text(json.dumps({"invocations": configs + [config]}, indent=2) + "\n")
+            self.summary = self._read_summary()
+            self.predicted = set(load_predictions(self.path))
+
+    @contextlib.contextmanager
+    def _locked(self):
+        with open(self.path / ".lock", "a") as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
+            try:
+                yield
+            finally:
+                fcntl.flock(f, fcntl.LOCK_UN)
+
+    def _read_summary(self):
+        summary = json.loads(self.summary_path.read_text()) if self.summary_path.exists() else {}
+        summary.setdefault("runs", {})
+        return summary
+
+    def _update(self, key, name, value):
+        with self._locked():
+            self.summary = self._read_summary()
+            self.summary.setdefault(key, {})[name] = value
+            self.summary_path.write_text(json.dumps(self.summary, indent=2) + "\n")
 
     def done(self, run_id):
+        """True when ``run_id`` is recorded, by this process or another one."""
+        if run_id not in self.summary["runs"]:
+            with self._locked():
+                self.summary = self._read_summary()
         return run_id in self.summary["runs"]
 
     def logger(self, run_id):
         def log(row):
             row = {"run": run_id, **row}
-            new = not self.metrics_path.exists()
-            with open(self.metrics_path, "a", newline="") as f:
-                w = csv.DictWriter(f, fieldnames=list(row))
-                if new:
-                    w.writeheader()
-                w.writerow(row)
+            with self._locked():
+                new = not self.metrics_path.exists()
+                with open(self.metrics_path, "a", newline="") as f:
+                    w = csv.DictWriter(f, fieldnames=list(row))
+                    if new:
+                        w.writeheader()
+                    w.writerow(row)
         return log
 
     def record(self, run_id, result):
-        self.summary["runs"][run_id] = result
-        self._write()
+        self._update("runs", run_id, result)
 
     def select(self, cell, value):
         """Records a selection made from the runs (e.g. the lr chosen on val for a head config)."""
-        self.summary.setdefault("selected", {})[cell] = value
-        self._write()
+        self._update("selected", cell, value)
 
     def save_predictions(self, run_id, pred):
-        with open(self.path / "predictions.jsonl", "a") as f:
-            f.write(json.dumps({"run": run_id, "test_pred": [int(v) for v in pred]}) + "\n")
+        line = json.dumps({"run": run_id, "test_pred": [int(v) for v in pred]}) + "\n"
+        with self._locked():
+            with open(self.path / "predictions.jsonl", "a") as f:
+                f.write(line)
         self.predicted.add(run_id)
-
-    def _write(self):
-        self.summary_path.write_text(json.dumps(self.summary, indent=2) + "\n")
 
 
 def load_predictions(path):

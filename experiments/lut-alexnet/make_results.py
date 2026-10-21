@@ -77,7 +77,8 @@ def head_groups(runs):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--backbones", default="exp_backbones_v1")
-    ap.add_argument("--heads", nargs="+", default=["exp_dense_heads_v1", "exp_conv3_dense_vs_lut_v1"])
+    ap.add_argument("--heads", nargs="+", default=["exp_dense_heads_v1", "exp_conv3_dense_vs_lut_v1",
+                                                   "exp_pixels_dense_vs_lut_v1", "exp_final_dense_vs_lut_v1"])
     ap.add_argument("--out", default="results.md")
     args = ap.parse_args()
 

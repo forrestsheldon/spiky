@@ -294,6 +294,31 @@ def test_head_cost():
 
 # ---- bookkeeping ----
 
+def test_expdir_concurrent_writers_lose_nothing(tmp_path):
+    import subprocess
+    import sys
+    from pathlib import Path
+    harness_root = str(Path(__file__).resolve().parent.parent)
+    script = (
+        "import sys; sys.path.insert(0, sys.argv[1]); from harness.runlog import ExpDir\n"
+        "w = int(sys.argv[3]); e = ExpDir(sys.argv[2], {'writer': w})\n"
+        "for j in range(25):\n"
+        "    e.logger(f'w{w}_{j}')({'epoch': 1, 'val_acc': 0.5})\n"
+        "    e.save_predictions(f'w{w}_{j}', list(range(3000)))\n"
+        "    e.record(f'w{w}_{j}', {'final_val_acc': 0.5})\n"
+        "    e.select(f'cell{w}', j)\n"
+    )
+    exp_path = tmp_path / "exp"
+    procs = [subprocess.Popen([sys.executable, "-c", script, harness_root, str(exp_path), str(w)])
+             for w in range(4)]
+    assert all(p.wait(timeout=60) == 0 for p in procs)
+    again = ExpDir(exp_path, {"writer": 0})
+    assert len(again.summary["runs"]) == 100 and again.summary["selected"] == {f"cell{w}": 24 for w in range(4)}
+    assert len(load_predictions(exp_path)) == 100
+    assert len((exp_path / "metrics.csv").read_text().splitlines()) == 101  # header + one row per run
+    assert len(json.loads((exp_path / "config.json").read_text())["invocations"]) == 4
+
+
 def test_predictions_roundtrip_and_mcnemar(tmp_path):
     exp = ExpDir(tmp_path / "exp", {"a": 1})
     exp.save_predictions("_labels__x", torch.tensor([0, 1, 2, 3]))
