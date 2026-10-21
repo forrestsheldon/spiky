@@ -1,0 +1,55 @@
+{
+  "runs": {
+    "cifar10__pixels__lut-ConfidenceLUT-n2-h8t64nap8d48_W1024__lr0.0001__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "lut-ConfidenceLUT-n2-h8t64nap8d48",
+      "width": 1024,
+      "lr": 0.0001,
+      "seed": 0,
+      "params": 7875981,
+      "linear_macs": 1583104,
+      "lut_row_reads": 1024,
+      "final_train_acc": 0.9936222222222222,
+      "final_val_acc": 0.4696,
+      "final_test_acc": 0.4846,
+      "train_s": 226.51450395584106,
+      "source": "pixels"
+    },
+    "cifar10__pixels__lut-ConfidenceLUT-n2-h8t64nap8d48_W1024__lr0.0003__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "lut-ConfidenceLUT-n2-h8t64nap8d48",
+      "width": 1024,
+      "lr": 0.0003,
+      "seed": 0,
+      "params": 7875981,
+      "linear_macs": 1583104,
+      "lut_row_reads": 1024,
+      "final_train_acc": 0.9918666666666667,
+      "final_val_acc": 0.493,
+      "final_test_acc": 0.5048,
+      "train_s": 263.88542008399963,
+      "source": "pixels"
+    },
+    "cifar10__pixels__lut-ConfidenceLUT-n2-h8t64nap8d48_W1024__lr0.001__s0": {
+      "dataset": "cifar10",
+      "input": "pixels",
+      "in_dim": 3072,
+      "trunk": "lut-ConfidenceLUT-n2-h8t64nap8d48",
+      "width": 1024,
+      "lr": 0.001,
+      "seed": 0,
+      "params": 7875981,
+      "linear_macs": 1583104,
+      "lut_row_reads": 1024,
+      "final_train_acc": 0.9679555555555556,
+      "final_val_acc": 0.492,
+      "final_test_acc": 0.4972,
+      "train_s": 256.4202461242676,
+      "source": "pixels"
+    }
+  }
+}

@@ -1,2 +1,3 @@
 _cache/
 exp_*/.lock
+stdout_*.log

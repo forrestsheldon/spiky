@@ -36,6 +36,12 @@ def macs(r):
     return r["in_dim"] * w + w * w + w * 10
 
 
+def values_read(r, d_of):
+    """Values read from memory per input at batch size 1: every linear weight, plus the addressed table rows of a
+    LUT trunk (``lut_row_reads`` rows of width d)."""
+    return macs(r) + r.get("lut_row_reads", 0) * d_of.get(r["trunk"], 0)
+
+
 def trunk_line(inv):
     tag = inv.get("trunk_tag", inv["trunk"])
     return f"`{tag}`" + (f" (dropout {inv['dropout']})" if inv["trunk"] == "mlp" else "")
@@ -106,6 +112,7 @@ def main():
             continue
         invocations = json.loads((HERE / heads / "config.json").read_text())["invocations"]
         cfg = invocations[-1]
+        d_of = {i["trunk_tag"]: i["trunk_kwargs"].get("d", 0) for i in invocations if "trunk_tag" in i}
         summary = json.loads(path.read_text())
         groups = head_groups(summary["runs"])
         best = {}
@@ -119,16 +126,17 @@ def main():
                   f"Features from `{cfg['backbone_features']}`; {cfg['optim']['epochs']} epochs. Trunks: "
                   + ", ".join(dict.fromkeys(trunk_line(i) for i in invocations))
                   + ". `pixels` = raw-pixel MLP reference (no backbone). MACs = multiply-adds per input in the"
-                  " head's linear layers (a LUT trunk also adds table rows, no multiplies).",
+                  " head's linear layers (a LUT trunk also adds table rows, no multiplies); reads = values read"
+                  " from memory per input at batch size 1 (all linear weights + the addressed table rows).",
                   f"Selection: {cfg['selection']}.", "",
-                  "| dataset | input | in dim | trunk | W | lr | train | val | test | params | MACs | n |",
-                  "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+                  "| dataset | input | in dim | trunk | W | lr | train | val | test | params | MACs | reads | n |",
+                  "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
         for key in sorted(best, key=lambda k: (ORDER[k[0]], ORDER[k[1]], k[2], -k[3])):
             rs = groups[(*key, best[key][1])]
             tr, va, te = (mean_se([r[f"final_{s}_acc"] for r in rs]) for s in ("train", "val", "test"))
             lines.append(f"| {key[0]} | {key[1]} | {rs[0]['in_dim']} | {key[2]} | {key[3]} | {best[key][1]:g} | "
                          f"{pct(tr[0])} | {pct(*va)} | {pct(*te)} | {rs[0]['params'] / 1e6:.2f}M | "
-                         f"{macs(rs[0]) / 1e6:.2f}M | {len(rs)} |")
+                         f"{macs(rs[0]) / 1e6:.2f}M | {values_read(rs[0], d_of) / 1e6:.2f}M | {len(rs)} |")
         rows = paired(best, groups, load_predictions(HERE / heads))
         if rows:
             lines += ["", "Paired on the same test images (selected lr each side). Δ = test acc A − B, mean ± SE "
